@@ -23,7 +23,7 @@ var AppView = Backbone.View.extend({
   },
 
   renderSearch: function() {
-    var search = new SearchView();
+    var search = new SearchView({ collection: this.videos });
     search.render();
   },
 
