@@ -11,18 +11,25 @@ var AppView = Backbone.View.extend({
         this.render();
       }, this);
     }, this);
-    this.videoPlayerView = new VideoPlayerView({ collection: this.videos });
-    this.videoListView = new VideoListView({ collection: this.videos });
     this.render();
   },
 
-  // TODO: decouple search, player, and list rendering into helper functionss
   render: function() {
     this.$el.html(this.template());
     // this.$el.find('.search').replaceWith(this.search.render());
-    this.$el.find('.player').replaceWith((new VideoPlayerView({ model: this.current })).render());
-    this.$el.find('.list').replaceWith((new VideoListView({ collection: this.videos})).render());
+    this.renderVideoPlayer();
+    this.renderVideoList();
     return this;
+  },
+
+  renderVideoPlayer: function() {
+    var videoPlayer = new VideoPlayerView({ model: this.current });
+    this.$el.find('.player').replaceWith(videoPlayer.render());
+  },
+
+  renderVideoList: function() {
+    var videoList = new VideoListView({ collection: this.videos });
+    this.$el.find('.list').replaceWith(videoList.render());
   },
 
   template: templateURL('src/templates/app.html')
