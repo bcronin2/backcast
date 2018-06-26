@@ -16,22 +16,25 @@ var AppView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
-    // this.$el.find('.search').replaceWith(this.search.render());
+    this.renderSearch();
     this.renderVideoPlayer();
     this.renderVideoList();
     return this;
   },
 
+  renderSearch: function() {
+    var search = new SearchView();
+    search.render();
+  },
+
   renderVideoPlayer: function() {
     var videoPlayer = new VideoPlayerView({ model: this.current });
     videoPlayer.render();
-    // this.$el.find('.player').replaceWith(videoPlayer.render());
   },
 
   renderVideoList: function() {
     var videoList = new VideoListView({ collection: this.videos });
     videoList.render();
-    // this.$el.find('.list').replaceWith(videoList.render());
   },
 
   template: templateURL('src/templates/app.html')
