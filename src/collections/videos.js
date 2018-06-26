@@ -2,7 +2,7 @@ var Videos = Backbone.Collection.extend({
 
   url: 'https://www.googleapis.com/youtube/v3/search',
 
-  search: function(query) {
+  search: _.throttle(function(query) {
     var self = this;
     this.fetch({
       data: {
@@ -23,7 +23,7 @@ var Videos = Backbone.Collection.extend({
         console.error('backcast: Failed to fetch videos', data);
       }
     });
-  },
+  }, 1000),
 
   parse: function(data) {
     return data.items;

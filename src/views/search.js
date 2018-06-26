@@ -3,13 +3,15 @@ var SearchView = Backbone.View.extend({
   el: '.search',
 
   events: {
-    'change input': 'search'
+    'keyup input': 'search'
   },
 
   search: function(e) {
     var query = e.target.value;
     this.collection.search(query);
-    this.$el.find('input').val('');
+    if (e.key === 'Enter') {
+      this.$el.find('input').val('');
+    }
   },
 
   render: function() {
