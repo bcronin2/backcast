@@ -24,12 +24,14 @@ var AppView = Backbone.View.extend({
 
   renderVideoPlayer: function() {
     var videoPlayer = new VideoPlayerView({ model: this.current });
-    this.$el.find('.player').replaceWith(videoPlayer.render());
+    videoPlayer.render();
+    // this.$el.find('.player').replaceWith(videoPlayer.render());
   },
 
   renderVideoList: function() {
     var videoList = new VideoListView({ collection: this.videos });
-    this.$el.find('.list').replaceWith(videoList.render());
+    videoList.render();
+    // this.$el.find('.list').replaceWith(videoList.render());
   },
 
   template: templateURL('src/templates/app.html')
