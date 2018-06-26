@@ -7,9 +7,10 @@ var SearchView = Backbone.View.extend({
   },
 
   search: function(e) {
-    var query = e.target.value;
-    this.collection.search(query);
-    if (e.key === 'Enter') {
+    if (e.key !== 'Enter') {
+      var query = e.target.value;
+      this.collection.search(query);
+    } else {
       this.$el.find('input').val('');
     }
   },
