@@ -3,6 +3,7 @@ var Videos = Backbone.Collection.extend({
   url: 'https://www.googleapis.com/youtube/v3/search',
 
   search: function(query) {
+    var self = this;
     this.fetch({
       data: {
         key: window.YOUTUBE_API_KEY,
@@ -14,6 +15,8 @@ var Videos = Backbone.Collection.extend({
       },
       type: 'GET',
       success: function(data) {
+        self.parse(data);
+        self.trigger('sync', self);
         console.log('backcast: Videos fetched');
       },
       error: function(data) {
@@ -22,8 +25,8 @@ var Videos = Backbone.Collection.extend({
     });
   },
 
-  parse: function(result) {
-    return result.items;
+  parse: function(data) {
+    return data.items;
   },
 
   model: Video
