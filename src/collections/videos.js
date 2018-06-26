@@ -8,7 +8,9 @@ var Videos = Backbone.Collection.extend({
         key: window.YOUTUBE_API_KEY,
         part: 'snippet',
         q: query,
-        maxResults: 5
+        maxResults: 5,
+        type: 'video',
+        videoEmbeddable: 'true'
       },
       type: 'GET',
       success: function(data) {
