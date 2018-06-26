@@ -18,7 +18,7 @@ var AppView = Backbone.View.extend({
         this.renderVideoPlayer();
       }, this);
     }, this);
-    this.current = this.videos.first();
+    this.videos.first().select();
   },
 
   render: function() {
