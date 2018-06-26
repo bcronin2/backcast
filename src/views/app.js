@@ -8,7 +8,7 @@ var AppView = Backbone.View.extend({
     this.videos.forEach(function(video) {
       video.on('select', function() {
         this.current = video;
-        this.render();
+        this.renderVideoPlayer();
       }, this);
     }, this);
     this.render();

@@ -9,8 +9,8 @@ var SearchView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
-    this.$el.find('.form-control')
-      .on('change', this.search.bind(this));
+    this.$el.find('button').on('click', this.search.bind(this));
+    this.$el.find('input').on('keyup', this.search.bind(this));
     return this.$el;
   },
 
