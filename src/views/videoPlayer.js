@@ -2,16 +2,8 @@ var VideoPlayerView = Backbone.View.extend({
 
   el: '.player',
 
-  // initialize: function() {
-  //   this.collection.forEach(function(video) {
-  //     video.on('select', function() {
-  //       this.current = video;
-  //       this.render();
-  //     }, this);
-  //   }, this);
-  // },
-
   render: function() {
+    // this.model.attributes.url = `https://www.youtube.com/embed/${model.attributes.id.videoId}`;
     this.$el.html(this.template(this.model.attributes));
     return this.$el;
   },
