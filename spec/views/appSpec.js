@@ -25,11 +25,15 @@ describe('AppView', function() {
   });
 
   it('should render a VideoPlayer view', function() {
-    expect(VideoPlayerView.prototype.render).to.have.callCount(1);
+    setTimeout(function() {
+      expect(VideoPlayerView.prototype.render).to.have.callCount(1);
+    }, 1000);
   });
 
   it('should render a VideoList view', function() {
-    expect(VideoListView.prototype.render).to.have.callCount(1);
+    setTimeout(function() {
+      expect(VideoListView.prototype.render).to.have.callCount(1);
+    }, 1000);
   });
 
   describe('when rendering live data from YouTube', function() {
