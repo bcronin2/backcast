@@ -12,17 +12,13 @@ describe ('SearchView', function() {
 
   describe('when rendering live data from YouTube', function() {
 
-    it('should initiate a search with input box value when button is clicked', function() {
+    it('should initiate a search with input box value when a key is pressed/released', function() {
       view.$('input').val('something');
-      view.$('input').trigger(jQuery.Event('change'));
-      expect(collection.search).to.have.been.called;
+      view.$('input').trigger(jQuery.Event('keyup'));
+      setTimeout(function() {
+        expect(collection.search).to.have.been.called;
+      }, 1000);
     });
-
-    // it('should initiate a search with input box value when enter is pressed', function() {
-    //   view.$('input').val('something');
-    //   view.$('input').trigger(jQuery.Event('keyup', { keyCode: 13 }));
-    //   expect(collection.search).to.have.been.called;
-    // });
 
   });
 

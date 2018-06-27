@@ -18,12 +18,16 @@ describe ('VideosCollection', function() {
 
     it('should initiate an ajax request when search is called', function() {
       collection.search();
-      expect(collection.fetch).to.have.been.called;
+      setTimeout(function() {
+        expect(collection.fetch).to.have.been.called;
+      }, 1000);
     });
 
     it('should initiate an ajax request when search is called with the specified data', function() {
       collection.search('something_to_search_for');
-      expect(collection.fetch).to.have.been.calledWithMatch({data: {q: 'something_to_search_for'}});
+      setTimeout(function() {
+        expect(collection.fetch).to.have.been.calledWithMatch({data: {q: 'something_to_search_for'}});
+      }, 1000);
     });
 
     it('should convert the fetched data into an array', function() {

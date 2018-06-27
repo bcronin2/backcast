@@ -20,9 +20,4 @@ describe ('VideoPlayerView', function() {
     expect(view.el).to.match(new RegExp(model.attributes.title));
   });
 
-  it('should re-render when an item is selected', function() {
-    collection.at(0).select();
-    expect(view.render).to.have.been.called;
-  });
-
 });

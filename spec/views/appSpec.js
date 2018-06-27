@@ -39,7 +39,9 @@ describe('AppView', function() {
     });
 
     it('should call fetch videos when app is initialized', function() {
-      expect(Backbone.ajax).to.have.been.called;
+      setTimeout(function() {
+        expect(Backbone.ajax).to.have.been.called;
+      }, 1000);
     });
 
     it('should select the first video once new videos are loaded', function() {
