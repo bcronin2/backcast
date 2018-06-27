@@ -6,6 +6,10 @@ var SearchView = Backbone.View.extend({
     'keyup input': 'search'
   },
 
+  initialize: function() {
+    this.render();
+  },
+
   search: function(e) {
     if (e.key !== 'Enter') {
       var query = e.target.value;
