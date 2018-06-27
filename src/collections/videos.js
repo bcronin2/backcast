@@ -15,7 +15,6 @@ var Videos = Backbone.Collection.extend({
       },
       type: 'GET',
       success: function(data) {
-        self.parse(data);
         self.trigger('sync', self);
         console.log('backcast: Videos fetched');
       },
@@ -23,7 +22,7 @@ var Videos = Backbone.Collection.extend({
         console.error('backcast: Failed to fetch videos', data);
       }
     });
-  }, 1000),
+  }, 500, { leading: false }),
 
   parse: function(data) {
     return data.items;
